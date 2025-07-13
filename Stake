@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Important System Alert!</title>
+    <style>
+        body {
+            background: black;
+            color: red;
+            font-family: monospace;
+            text-align: center;
+            padding: 50px;
+        }
+        .hidden {
+            display: none;
+        }
+        #loading {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">
+        <p>Scanning system...</p>
+        <p>Checking credentials...</p>
+        <p>Access granted.</p>
+    </div>
+    
+    <div id="prank" class="hidden">
+        <h1>F*** YOU, <span id="username"></span>! 😈</h1>
+        <p>(Just kidding... or am I? 🤔)</p>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const name = prompt("Enter your name for verification:");
+            document.getElementById("username").textContent = name.toUpperCase();
+            document.getElementById("loading").classList.add("hidden");
+            document.getElementById("prank").classList.remove("hidden");
+        }, 3000);
+    </script>
+</body>
+</html>
