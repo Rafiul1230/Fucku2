@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚠️ SECURITY ALERT ⚠️</title>
+    <style>
+        body {
+            background: #000;
+            color: #ff0000;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+        #scan {
+            font-size: 18px;
+            margin: 50px auto;
+            max-width: 600px;
+        }
+        #message {
+            font-size: 48px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #ff0000;
+            display: none;
+            margin-top: 50px;
+        }
+        #subtext {
+            font-size: 16px;
+            color: #ccc;
+            display: none;
+        }
+        .blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div id="scan">
+        <p>> INITIATING SYSTEM SCAN...</p>
+        <p>> CHECKING USER PRIVILEGES...</p>
+        <p>> BACKDOOR ACCESS FOUND!</p>
+        <p>> WARNING: MALICIOUS ENTITY DETECTED!</p>
+    </div>
+
+
+    <div id="message">F*** YOU, <span id="target"></span>! <span class="blink">☠️</span></div>
+    <div id="subtext">(This device will self-destruct in 10 seconds... kidding!)</div>
+
+
+    <script>
+        setTimeout(() => {
+            const name = prompt("SECURITY OVERRIDE:\nEnter your name to abort system crash:");
+            document.getElementById("target").textContent = name.toUpperCase();
+            document.getElementById("scan").style.display = "none";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("subtext").style.display = "block";
+
+
+            // Dramatic background flash
+            let flashCount = 0;
+            const flashInterval = setInterval(() => {
+                document.body.style.backgroundColor = flashCount % 2 === 0 ? "#ff0000" : "#000";
+                flashCount++;
+                if (flashCount > 6) {
+                    clearInterval(flashInterval);
+                    document.body.style.backgroundColor = "#000";
+                }
+            }, 300);
+        }, 3000);
+    </script>
+</body>
+</html>
